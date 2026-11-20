@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "Nosh",
+    "slug": "nosh-mobile",
+    "version": "1.4.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "nosh",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "backgroundColor": "#0d0f12",
+    "splash": {
+      "image": "./assets/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0d0f12"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nosh.mobile",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Nosh uses the camera to scan QR codes for anonymous E2EE note synchronization."
+      }
+    },
+    "android": {
+      "package": "com.nosh.mobile",
+      "softwareKeyboardLayoutMode": "resize",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#0d0f12"
+      },
+      "permissions": [
+        "android.permission.CAMERA"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Nosh to access your camera to scan QR sync and collaboration codes."
+        }
+      ],
+      "expo-sharing",
+      "expo-status-bar"
+    ]
+  }
+}
