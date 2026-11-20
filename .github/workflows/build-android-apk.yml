@@ -54,7 +54,7 @@ jobs:
             echo "Missing ANDROID_KEYSTORE_BASE64 secret" >&2
             exit 1
           fi
-          echo "$ANDROID_KEYSTORE_BASE64" | base64 --decode > android/app/nosh-release.p12
+          node -e "const fs=require('fs'); fs.writeFileSync('android/app/nosh-release.p12', Buffer.from(process.env.ANDROID_KEYSTORE_BASE64.replace(/\s+/g, ''), 'base64'));"
           keytool -list -keystore android/app/nosh-release.p12 -storetype PKCS12 -storepass "$ANDROID_KEYSTORE_PASSWORD" -alias "$ANDROID_KEY_ALIAS"
           cat <<'EOF' >> android/app/build.gradle
 
